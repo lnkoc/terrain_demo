@@ -61,9 +61,9 @@ Terrain::Terrain() {
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
             
-            tab[i][j][0]    = (double)i;
-            tab[i][j][1]    = (double)j;
-            tab[i][j][2]    = modul.GetValue((double)i / (i + j), (double)j / (i + j), (double) i + j); 
+            tab[i][j][0]    = (float)i;
+            tab[i][j][1]    = (float)j;
+            tab[i][j][2]    = modul.GetValue((float)i / (i + j), (float)j / (i + j), (float) i + j); 
         }
     }
 }
@@ -78,9 +78,9 @@ Terrain::Terrain(int m) {
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
             
-            tab[i][j][0]    = (double)i;
-            tab[i][j][1]    = (double)j;
-            tab[i][j][2]    = modul.GetValue((double)i / (i + j), (double)j / (i + j), (double) i + j); 
+            tab[i][j][0]    = (float)i;
+            tab[i][j][1]    = (float)j;
+            tab[i][j][2]    = modul.GetValue((float)i / (i + j), (float)j / (i + j), (float) i + j); 
         }
     }
 }
@@ -202,7 +202,7 @@ void ChangeSize(GLsizei horizontal, GLsizei vertical ) {
     glLoadIdentity();
     // Czyszcznie macierzy bieżącej
 
-    gluPerspective(70, 1.0, 1.0, 30.0);
+    gluPerspective(70, 1.0, 1.0, 40.0);
     // Ustawienie parametrów dla rzutu perspektywicznego
 
     if(horizontal <= vertical)
@@ -229,7 +229,7 @@ int main(int argc, char **argv) {
 
     glutInitWindowSize(600, 600);
    
-    glutCreateWindow("Pierwszy program w OpenGL");
+    glutCreateWindow("terrain: libnoise demo");
     // Utworzenie okna i określenie treści napisu w nagłówku okna
     
     glutDisplayFunc(RenderScene);
